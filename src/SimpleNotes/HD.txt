@@ -1,0 +1,5 @@
+﻿https://ng-bootstrap.github.io/#/components/datepicker/examples
+https://ng-bootstrap.github.io/#/getting-started
+https://github.com/valor-software/angular2-quickstart
+https://stackoverflow.com/questions/39059762/ng-bootstrap-import-error-angular-2
+https://stackoverflow.com/questions/36292438/how-to-use-bootstrap-css-library-in-angular-2-project
