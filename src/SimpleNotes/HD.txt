@@ -3,3 +3,7 @@ https://ng-bootstrap.github.io/#/getting-started
 https://github.com/valor-software/angular2-quickstart
 https://stackoverflow.com/questions/39059762/ng-bootstrap-import-error-angular-2
 https://stackoverflow.com/questions/36292438/how-to-use-bootstrap-css-library-in-angular-2-project
+
+https://www.w3schools.com/bootstrap/bootstrap_templates.asp
+https://stackoverflow.com/questions/19089384/twitter-bootstrap-3-two-columns-full-height
+https://stackoverflow.com/questions/41448221/bootstrap-fullscreen-layout-with-100-height

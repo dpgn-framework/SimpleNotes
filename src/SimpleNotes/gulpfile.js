@@ -36,18 +36,23 @@ var srcPaths = {
     less: [
         'Client/less/**/*.less'
     ],
-    template: ['Client/app/**/*.html']
+    template: ['Client/app/**/*.html'],
+    resource: ['Client/resources/**']
 };
 var destPaths = {
     app: 'wwwroot/app/',
     css: 'wwwroot/css/',
     js: 'wwwroot/js/',
     js_angular: 'wwwroot/js/@angular/',
-    js_rxjs: 'wwwroot/js/rxjs/'
+    js_rxjs: 'wwwroot/js/rxjs/',
+    resource: 'wwwroot/resources/',
+    css_dev: 'Client/css/',
 };
 
 // Compile, minify and create sourcemaps all TypeScript files and place them to wwwroot/app, together with their js.map files.
 gulp.task('app', ['app_clean'], function () {
+    gulp.src(srcPaths.resource)
+        .pipe(gulp.dest(destPaths.resource));
     gulp.src(srcPaths.template)
         //.pipe(gp_minifyhtml({ empty: true })) // disable uglify
         //.on('error', function (err) { gp_util.log(gp_util.colors.red('[Error]'), err.toString()); })
@@ -94,6 +99,12 @@ gulp.task('less', ['less_clean'], function () {
     return gulp.src(srcPaths.less)
         .pipe(gp_less())
         .pipe(gulp.dest(destPaths.css));
+});
+// Process all LESS files and output the resulting CSS in wwwroot/css
+gulp.task('less_dev', [], function () {
+    return gulp.src(srcPaths.less)
+        .pipe(gp_less())
+        .pipe(gulp.dest(destPaths.css_dev));
 });
 // Delete wwwroot/css contents
 gulp.task('less_clean', [], function () {
