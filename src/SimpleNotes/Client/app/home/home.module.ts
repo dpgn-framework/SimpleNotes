@@ -4,20 +4,26 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
-import { HomeComponent } from './home.component';
+import { HomeComponent } from 'app/home/home.component';
+import { AboutComponent } from 'app/about/about.component';
+import { NoteComponent } from 'app/note/note.component';
+
+import { homeRouting } from 'app/home/home.routing';
 
 @NgModule({
     imports: [
         CommonModule,
         ReactiveFormsModule,
         HttpModule,
-        RouterModule
+        RouterModule,
+
+        homeRouting
     ],
     declarations: [
-        HomeComponent
+        HomeComponent, AboutComponent, NoteComponent
     ],
     exports: [
-        HomeComponent
+        HomeComponent, AboutComponent, NoteComponent
     ]
 })
 export class HomeModule {

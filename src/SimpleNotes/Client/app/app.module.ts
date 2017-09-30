@@ -4,13 +4,14 @@ import { HttpModule } from "@angular/http";
 import { RouterModule } from '@angular/router';
 //import "rxjs/Rx";
 
-import { LoginModule } from './login/login.module';
-import { HomeModule } from './home/home.module';
+import { LoginModule } from 'app/login/login.module';
+import { HomeModule } from 'app/home/home.module';
 
-import { AppComponent } from "./app.component";
-import { NotFoundComponent } from './notfound.component';
+import { AppComponent } from "app/app.component";
+import { NotFoundComponent } from 'app/notfound.component';
 
-import { routing } from './app.routing';
+import { routing } from 'app/app.routing';
+import { homeRouting } from 'app/home/home.routing';
 
 @NgModule({
     // directives, components, and pipes
@@ -25,7 +26,8 @@ import { routing } from './app.routing';
         LoginModule,
         HomeModule,
 
-        routing
+        routing,
+        homeRouting
     ],
     // providers
     providers: [
