@@ -25,15 +25,15 @@
 <div class="container-fluid text-center" style="height: calc(100% - 150px);">
     <div class="row content">
         <div class="col-sm-2 sidenav">
-            <p><a href="#" [routerLink]="['/home', { outlets: { 'app-content': ['note'] } }]">Notes</a></p>
-            <p><a [routerLink]="['/home', { outlets: { 'app-content': ['about'] } }]">About</a></p>
+            <p><a href="#" [routerLink]="['note']">Notes</a></p>
+            <p><a href="#" [routerLink]="['about']">About</a></p>
             <p><a href="#">Reload Page</a></p>
 
             <button type="button" (click)="gotoNote()">Go to Notes</button>
             <button type="button" (click)="gotoAbout()">Go to About</button>
         </div>
         <div class="col-sm-8 text-left">
-            <router-outlet name="app-content"></router-outlet>
+            <router-outlet></router-outlet>
         </div>
         <div class="col-sm-2 sidenav">
             <div class="well">

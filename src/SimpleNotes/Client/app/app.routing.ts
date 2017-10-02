@@ -2,11 +2,10 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { NotFoundComponent } from 'app/notfound.component';
-import { HomeComponent } from 'app/home/home.component';
 import { LoginComponent } from 'app/login/login.component';
 
 export const routing: ModuleWithProviders  = RouterModule.forRoot([
-    { path: '', component: HomeComponent },
+    { path: '', component: LoginComponent },
     {
         path: 'home', loadChildren: 'app/home/home.module#HomeModule'
     },

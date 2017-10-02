@@ -7,17 +7,19 @@ import { NoteComponent } from "app/note/note.component";
 const appRoutes: Routes = [
     {
         path: "home",
+        component: HomeComponent
+    },
+    {
+        path: "",
         component: HomeComponent,
         children: [
             {
                 path: 'about',
                 component: AboutComponent,
-                outlet: 'app-content'
             },
             {
                 path: 'note',
                 component: NoteComponent,
-                outlet: 'app-content'
             }
         ]
     }

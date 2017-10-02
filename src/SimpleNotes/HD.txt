@@ -10,3 +10,5 @@ https://stackoverflow.com/questions/41448221/bootstrap-fullscreen-layout-with-10
 
 Must install Rewrite module v2
 https://www.iis.net/downloads/microsoft/url-rewrite
+
+Lazy loading Module cannot load children to named Router-Outlet
