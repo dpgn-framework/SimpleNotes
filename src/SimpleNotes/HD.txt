@@ -12,3 +12,8 @@ Must install Rewrite module v2
 https://www.iis.net/downloads/microsoft/url-rewrite
 
 Lazy loading Module cannot load children to named Router-Outlet
+
+Dialog
+http://nakupanda.github.io/bootstrap3-dialog/
+https://www.npmjs.com/package/ng2-bootstrap-modal
+https://plnkr.co/edit/MB6NnzfhicMyAiMJy6YM?p=preview

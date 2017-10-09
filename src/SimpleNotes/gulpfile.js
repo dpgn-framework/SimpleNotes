@@ -23,15 +23,25 @@ var srcPaths = {
         'node_modules/zone.js/dist/zone.js',
         'node_modules/reflect-metadata/Reflect.js',
         'node_modules/systemjs/dist/system.src.js',
-        'node_modules/typescript/lib/typescript.js',
-        'node_modules/ng2-bootstrap/bundles/ngx-bootstrap.umd.js',
-        'node_modules/moment/moment.js'
+        'node_modules/typescript/lib/typescript.js'
     ],
     js_angular: [
         'node_modules/@angular/**'
     ],
     js_rxjs: [
         'node_modules/rxjs/**'
+    ],
+    js_moment: [
+        'node_modules/moment/src/**/*.js'
+    ],
+    js_bootstrap: [
+        'node_modules/bootstrap/dist/**'
+    ],
+    js_ng2_bootstrap: [
+        'node_modules/ng2-bootstrap/**/*.js'
+    ],
+    js_ng2_bootstrap_modal: [
+        'node_modules/ng2-bootstrap-modal/dist/**/*.js'
     ],
     less: [
         'Client/less/**/*.less'
@@ -45,6 +55,10 @@ var destPaths = {
     js: 'wwwroot/js/',
     js_angular: 'wwwroot/js/@angular/',
     js_rxjs: 'wwwroot/js/rxjs/',
+    js_moment: 'wwwroot/js/moment/',
+    js_bootstrap: 'wwwroot/js/bootstrap/',
+    js_ng2_bootstrap: 'wwwroot/js/ng2-bootstrap/',
+    js_ng2_bootstrap_modal: 'wwwroot/js/ng2-bootstrap-modal/',
     resource: 'wwwroot/resources/',
     css_dev: 'Client/css/',
 };
@@ -77,10 +91,18 @@ gulp.task('js', [], function () {
         .pipe(gulp.dest(destPaths.js_angular));
     gulp.src(srcPaths.js_rxjs)
         .pipe(gulp.dest(destPaths.js_rxjs));
-    return gulp.src(srcPaths.js)
+    gulp.src(srcPaths.js)
     // .pipe(gp_uglify({ mangle: false })) // disable uglify
     // .pipe(gp_concat('all-js.min.js')) // disable concat
         .pipe(gulp.dest(destPaths.js));
+    gulp.src(srcPaths.js_moment)
+        .pipe(gulp.dest(destPaths.js_moment));
+    gulp.src(srcPaths.js_bootstrap)
+        .pipe(gulp.dest(destPaths.js_bootstrap));
+    gulp.src(srcPaths.js_ng2_bootstrap_modal)
+        .pipe(gulp.dest(destPaths.js_ng2_bootstrap_modal));
+    return gulp.src(srcPaths.js_ng2_bootstrap)
+        .pipe(gulp.dest(destPaths.js_ng2_bootstrap));
 });
 // Copy all html files from external libraries to wwwroot/app
 gulp.task('template', [], function () {

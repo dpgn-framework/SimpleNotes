@@ -2,18 +2,19 @@
     // map tells the System loader where to look for things
     var map = {
         'app': 'app', // our application files
-        '@angular': 'js/@angular', // angular2 packages
-        'rxjs': 'js/rxjs' // Rxjs package
-        //'moment': 'js/moment.js',
-        //'ng2-bootstrap': 'js/ngx-bootstrap.umd.js',
+        '@angular': 'node_modules/@angular', // angular2 packages
+        'rxjs': 'node_modules/rxjs', // Rxjs package
+        'moment': 'node_modules/moment',
+        'ng2-bootstrap': 'node_modules/ng2-bootstrap',
+        'ng2-bootstrap-modal': 'node_modules/ng2-bootstrap-modal'
     };
     // packages tells the System loader which filename and/or extensions to look for by default (when none are specified)
     var packages = {
         'app': { main: 'main.js', defaultExtension: 'js' },
-        'rxjs': { defaultExtension: 'js' },
-        // ng2-bootstrap
-        //'ng2-bootstrap': { format: 'cjs', main: 'ng2-bootstrap.umd.js', defaultExtension: 'js' },
-        //'moment': { main: 'moment.js', defaultExtension: 'js' },
+        'rxjs': { main: 'Rx.js', defaultExtension: 'js' },
+        'moment': { main: 'moment.js', defaultExtension: 'js' },
+        'ng2-bootstrap': { main: 'index.js', defaultExtension: 'js' },
+        'ng2-bootstrap-modal': { main: 'index.js', defaultExtension: 'js' }
     };
     // configure @angular packages
     var ngPackageNames = [

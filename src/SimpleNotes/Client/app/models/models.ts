@@ -1,1 +1,1 @@
-﻿export { User } from './user.model';
+﻿export { User } from 'app/models/user.model';

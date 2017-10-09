@@ -1,7 +1,8 @@
 ﻿import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
-import { HttpModule } from "@angular/http";
-import { RouterModule } from '@angular/router';
+//import { RouterModule } from '@angular/router';
+//import { HttpModule } from "@angular/http";
 //import "rxjs/Rx";
 
 import { LoginModule } from 'app/login/login.module';
@@ -17,10 +18,11 @@ import { routing } from 'app/app.routing';
     ],
     // modules
     imports: [
+        CommonModule,
         BrowserModule,
-        HttpModule,
-        RouterModule,
-
+        //RouterModule,
+        //HttpModule,
+        
         LoginModule,
 
         routing

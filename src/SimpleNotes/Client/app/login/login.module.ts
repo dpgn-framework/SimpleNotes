@@ -7,12 +7,12 @@
 import { LoginComponent } from './login.component';
 
 @NgModule({
-    /*imports: [
-        CommonModule,
+    imports: [
+        /*CommonModule,
         ReactiveFormsModule,
         HttpModule,
-        RouterModule
-    ],*/
+        RouterModule*/
+    ],
     declarations: [
         LoginComponent
     ],
