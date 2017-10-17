@@ -9,6 +9,11 @@
         </thead>
         <tbody>
             <tr>
+                <td><b>Dialog</b></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
                 <td>Alert dialog</td>
                 <td><button (click)="showAlertDialog()">Show Aler dialog</button></td>
                 <td>2 buttons</td>
@@ -27,6 +32,25 @@
                 <td>Confirm dialog</td>
                 <td><button (click)="showConfirmDialogYNC()">Show Confirm dialog (Yes, No and Cancel)</button></td>
                 <td>3 buttons</td>
+            </tr>
+            <tr>
+                <td>Custom dialog</td>
+                <td><button (click)="showCustomDialog()">Show Custom dialog</button></td>
+                <td>1 buttons</td>
+            </tr>
+            <tr>
+                <td><b>DatePicker</b></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>DatePicker</td>
+                <td>
+                    <div>Datepicker - click outside (click on month)</div>
+                    {{dateValue | date:"yyyy/MM/dd"}}
+                    <sn-datepicker [id]="'demo-date'" [value]="dateValue"></sn-datepicker>
+                </td>
+                <td></td>
             </tr>
         </tbody>
     </table>

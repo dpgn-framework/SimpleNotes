@@ -5,7 +5,7 @@
         '@angular': 'js/@angular', // angular2 packages
         'rxjs': 'js/rxjs', // Rxjs package
         'moment': 'js/moment',
-        'ng2-bootstrap': 'js/ng2-bootstrap',
+        'ng2-bootstrap': 'js/ng2-bootstrap/bundles',
         'ng2-bootstrap-modal': 'js/ng2-bootstrap-modal'
     };
     // packages tells the System loader which filename and/or extensions to look for by default (when none are specified)
@@ -13,7 +13,7 @@
         'app': { main: 'main.js', defaultExtension: 'js' },
         'rxjs': { main: 'Rx.js', defaultExtension: 'js' },
         'moment': { main: 'moment.js', defaultExtension: 'js' },
-        'ng2-bootstrap': { main: 'index.js', defaultExtension: 'js' },
+        'ng2-bootstrap': { main: 'ngx-bootstrap.umd.js', defaultExtension: 'js' },
         'ng2-bootstrap-modal': { main: 'index.js', defaultExtension: 'js' }
     };
     // configure @angular packages

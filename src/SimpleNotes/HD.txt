@@ -17,3 +17,14 @@ Dialog
 http://nakupanda.github.io/bootstrap3-dialog/
 https://www.npmjs.com/package/ng2-bootstrap-modal
 https://plnkr.co/edit/MB6NnzfhicMyAiMJy6YM?p=preview
+
+Angular 2/4 User Registration and Login Example & Tutorial
+http://jasonwatmore.com/post/2016/09/29/angular-2-user-registration-and-login-example-tutorial
+
+tsconfig.json
+//,
+  //https://github.com/angular/angular-cli/wiki/stories-third-party-lib
+  // install Jquery and config here
+  //"types": [
+  //  "$"
+  //]
