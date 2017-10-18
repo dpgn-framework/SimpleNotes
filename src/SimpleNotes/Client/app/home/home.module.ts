@@ -4,27 +4,21 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 
+// owner modules
 import { DialogModule } from 'app/dialogs/dialog.module';
+
+//third party modules
 import { Ng2BootstrapModule } from 'ng2-bootstrap';
 
-import { HomeComponent } from 'app/home/home.component';
-import { AboutComponent } from 'app/about/about.component';
-import { NoteComponent } from 'app/note/note.component';
-import { DemoComponent } from 'app/demo/demo.component';
+// infrastructure
+import {
+    ServiceLocator,
+    sn_components, sn_control_components,
+    sn_entry_components, sn_services, sn_directives
+} from 'app/home/home.declare';
 
-import { SnDialogService } from 'app/services/dialog.service';
-import { DemoCustomDialog } from 'app/demo/demo-custom.dialog';
-
+// routing config
 import { homeRouting } from 'app/home/home.routing';
-
-import { ClickOutsideDirective } from 'app/components/ng2-click-outside.directive';
-import { SnDatepickerComponent } from 'app/components/date.picker.component';
-
-export const myComponents = [
-    HomeComponent, AboutComponent, NoteComponent, DemoComponent,
-    ClickOutsideDirective, SnDatepickerComponent,
-    DemoCustomDialog
-];
 
 @NgModule({
     imports: [
@@ -38,27 +32,19 @@ export const myComponents = [
         
         homeRouting
     ],
-    providers: [SnDialogService ],
+    providers: [sn_services],
     declarations: [
-        myComponents
+        sn_directives, sn_components, sn_control_components, sn_entry_components
     ],
     exports: [
-        myComponents
+        sn_directives, sn_components, sn_control_components, sn_entry_components
     ],
     entryComponents: [
-        DemoCustomDialog
+        sn_entry_components
     ]
 })
 export class HomeModule {
     constructor(private injector: Injector) {
         ServiceLocator.injector = injector;
-    }
-}
-
-export class ServiceLocator {
-    static injector: Injector;
-
-    static get SnDialogService(): SnDialogService {
-        return ServiceLocator.injector.get(SnDialogService);
     }
 }

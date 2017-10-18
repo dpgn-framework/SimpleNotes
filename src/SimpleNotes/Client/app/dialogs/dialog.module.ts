@@ -5,7 +5,7 @@ import { DialogComponent, DialogService, BootstrapModalModule } from 'ng2-bootst
 import { AlertDialog } from 'app/dialogs/alert.dialog';
 import { ConfirmDialog } from 'app/dialogs/confirm.dialog';
 
-export { AlertDialog } from 'app/dialogs/alert.dialog';
+export { AlertDialog, AlertModel } from 'app/dialogs/alert.dialog';
 export { ConfirmDialog, ConfirmModel, ConfirmDialogMode } from 'app/dialogs/confirm.dialog';
 
 @NgModule({

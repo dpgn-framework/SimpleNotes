@@ -1,9 +1,6 @@
 ﻿import { ModuleWithProviders } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { HomeComponent } from "app/home/home.component";
-import { AboutComponent } from "app/about/about.component";
-import { NoteComponent } from "app/note/note.component";
-import { DemoComponent } from "app/demo/demo.component";
+import { HomeComponent, AboutComponent, NoteComponent, DemoComponent } from "app/home/home.declare";
 
 const appRoutes: Routes = [
     {

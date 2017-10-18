@@ -2,7 +2,7 @@
 import { Observable } from 'rxjs/Observable';
 import { DialogService } from "ng2-bootstrap-modal";
 import { AlertDialog, ConfirmDialog, ConfirmDialogMode } from 'app/dialogs/dialog.module';
-import { DemoCustomDialog } from 'app/demo/demo-custom.dialog';
+import { DemoCustomDialog } from 'app/home/home.declare';
 
 @Injectable()
 export class SnDialogService

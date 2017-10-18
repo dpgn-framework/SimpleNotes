@@ -1,7 +1,7 @@
 ﻿import { Component } from "@angular/core";
 //import { DialogService } from "ng2-bootstrap-modal";
 //import { AlertDialog, ConfirmDialog, ConfirmDialogMode } from 'app/dialogs/dialog.module';
-import { SnDialogService } from 'app/services/dialog.service';
+import { SnDialogService } from 'app/home/home.declare';
 
 @Component({
     selector: "sn-demo",
