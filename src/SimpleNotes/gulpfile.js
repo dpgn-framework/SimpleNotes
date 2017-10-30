@@ -10,10 +10,11 @@ var gulp = require('gulp'),
     gp_sourcemaps = require('gulp-sourcemaps'),
     gp_typescript = require('gulp-typescript'),
     gp_uglify = require('gulp-uglify'),
-    gp_minifyhtml = require('gulp-minify-html');
+    gp_minifyhtml = require('gulp-minify-html'),
+    gp_inlineNg2Template = require('gulp-inline-ng2-template'),
+    gp_util = require('gulp-util');
 
-//var pump = require('pump');
-var gp_util = require('gulp-util');
+var SystemBuilder = require('systemjs-builder');
 
 /// Define paths
 var srcPaths = {
@@ -146,3 +147,124 @@ gulp.task('default', ['app', 'js', 'less']);
 /*gulp.task('default', function () {
     // place code for your default task here
 });*/
+
+
+
+gulp.task('bundle_rxjs', function () {
+    var builder = new SystemBuilder('./', {
+        paths: { "rxjs/*": "node_modules/rxjs/*.js" },
+        map: { "rxjs": "node_modules/rxjs" },
+        packages: { "rxjs": { main: 'Rx.js', defaultExtension: "js" } }
+    });
+
+    builder.bundle('rxjs', 'wwwroot/js/rxjs/Rx.min.js', {
+        sourceMaps: true,
+        minify: false,
+        mangle: true
+    });
+});
+
+gulp.task('bundle_app_buildStatic', function () {
+    //https://github.com/angular/angular/issues/10933
+    //https://stackoverflow.com/questions/42564743/issues-with-es6-import-systemjs-0-20-9-typescript-angular-2-jspm-0-17-0-b/42611789#42611789
+    //https://stackoverflow.com/questions/39272994/resolving-path-in-systemjs-builder
+    var builder = new SystemBuilder("client");
+
+    builder.loadConfig('client/systemjs.config.js')
+        .then(function () {
+            var outputFile = './wwwroot/app/angular.bundle.js';
+            return builder.buildStatic('app/main', outputFile, {
+                minify: false,
+                mangle: false
+            });
+        })
+        .then(function () {
+            console.log('bundle built successfully!');
+        });
+});
+
+
+
+/**bundle ok but dont know to load with systemJS*/
+gulp.task('bundle_app_build', function () {
+    //https://github.com/angular/angular/issues/10933
+    //https://stackoverflow.com/questions/42564743/issues-with-es6-import-systemjs-0-20-9-typescript-angular-2-jspm-0-17-0-b/42611789#42611789
+    //https://stackoverflow.com/questions/39272994/resolving-path-in-systemjs-builder
+    var builder = new SystemBuilder("client");
+
+    builder.loadConfig('client/systemjs.config.js')
+        .then(function () {
+            var outputFile = './wwwroot/app/angular.bundle.js';
+            return builder.bundle('app/main', outputFile, {
+                minify: false,
+                mangle: false
+            });
+        })
+        .then(function () {
+            console.log('bundle built successfully!');
+        });
+});
+
+
+
+/*------------------------------------------*/
+/**bundle ok but dont know to use*/
+gulp.task('bundle', ['bundle-app', 'bundle-dependencies'], function () { });
+
+gulp.task('copy-template', function () {
+    return gulp.src('client/app/**/*.html')
+        .pipe(gulp.dest('dist/app'));
+});
+
+gulp.task('inline-templates', function () {
+    
+    return gulp.src('client/app/**/*.ts')
+      //.pipe(gp_inlineNg2Template({ useRelativePaths: true, indent: 0, removeLineBreaks: true, base: '/client/app' }))
+      .pipe(gp_typescript({
+          "baseUrl": "Client",
+          "target": "es5",
+          "module": "commonjs",
+          "moduleResolution": "node",
+          "sourceMap": true,
+          "emitDecoratorMetadata": true,
+          "experimentalDecorators": true,
+          "removeComments": true,
+          "lib": ["es2015", "es5", "dom"],
+          "noImplicitAny": false
+      }))
+      .pipe(gulp.dest('dist/app'));
+});
+
+gulp.task('bundle-app', ['inline-templates'], function () {
+    // optional constructor options
+    // sets the baseURL and loads the configuration file
+    var builder = new SystemBuilder('', 'client/dist-systemjs.config.js');
+
+    return builder
+      //.bundle('dist/app/**/* - [@angular/**/*.js] - [rxjs/**/*.js]', 'wwwroot/bundles/app.bundle.js', { minify: false })
+        .bundle('[dist/app/**/*]', 'wwwroot/bundles/app.bundle.js', { minify: false })
+      .then(function () {
+          console.log('Build complete');
+      })
+      .catch(function (err) {
+          console.log('Build error');
+          console.log(err);
+      });
+});
+
+gulp.task('bundle-dependencies', ['inline-templates'], function () {
+    // optional constructor options
+    // sets the baseURL and loads the configuration file
+    var builder = new SystemBuilder('', 'client/dist-systemjs.config.js');
+
+    return builder
+      //.bundle('dist/app/**/*.js - [dist/app/**/*.js]', 'wwwroot/bundles/dependencies.bundle.js', { minify: false })
+        .bundle('dist/app/**/* - [dist/app/**/*.js]', 'wwwroot/bundles/dependencies.bundle.js', { minify: false })
+      .then(function () {
+          console.log('Build complete');
+      })
+      .catch(function (err) {
+          console.log('Build error');
+          console.log(err);
+      });
+});

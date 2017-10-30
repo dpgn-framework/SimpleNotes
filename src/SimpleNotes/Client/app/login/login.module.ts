@@ -4,7 +4,7 @@
 //import { Router, RouterModule } from '@angular/router';
 //import { HttpModule } from '@angular/http';
 
-import { LoginComponent } from './login.component';
+import { LoginComponent } from 'app/login/login.component';
 
 @NgModule({
     imports: [

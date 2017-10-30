@@ -16,6 +16,20 @@
         'ng2-bootstrap': { main: 'ngx-bootstrap.umd.js', defaultExtension: 'js' },
         'ng2-bootstrap-modal': { main: 'index.js', defaultExtension: 'js' }
     };
+
+    /*var bundles = {
+        'app/angular.bundle.js': ['app/main', 'app/login/login.module', 'app/app.module', '@angular/core', '@angular/compiler', '@angular/platform-browser', '@angular/common'],
+        'js/rxjs/Rx.min.js': [
+            "rxjs/*",
+            "rxjs/symbol/*",
+            "rxjs/operator/*",
+            "rxjs/observable/*",
+            "rxjs/add/operator/*",
+            "rxjs/add/observable/*",
+            "rxjs/util/*"
+        ]  
+    };*/
+
     // configure @angular packages
     var ngPackageNames = [
       'common',
@@ -40,7 +54,8 @@
     ngPackageNames.forEach(setPackageConfig);
     var config = {
         map: map,
-        packages: packages
+        packages: packages,
+        //bundles: bundles
     }
     System.config(config);
 })(this);
