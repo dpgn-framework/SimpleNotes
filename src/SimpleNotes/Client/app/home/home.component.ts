@@ -9,11 +9,15 @@ export class HomeComponent {
     constructor(private router: Router) { }
 
     gotoNote() {
-        this.router.navigate(['/home/note']);
+        this.router.navigate(['home', { outlets: { 'app-content': 'note' } }]);
     }
 
     gotoAbout()
     {
-        this.router.navigate(['/home/about']);
+        this.router.navigate(['home', { outlets: { 'app-content': 'about' } }]);
+    }
+
+    gotoDemo() {
+        this.router.navigate(['home', { outlets: { 'app-content': 'demo' } }]);
     }
 }

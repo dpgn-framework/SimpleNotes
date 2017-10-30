@@ -213,7 +213,7 @@ gulp.task('bundle', ['bundle-app', 'bundle-dependencies'], function () { });
 
 gulp.task('copy-template', function () {
     return gulp.src('client/app/**/*.html')
-        .pipe(gulp.dest('dist/app'));
+        .pipe(gulp.dest('wwwroot/app'));
 });
 
 gulp.task('inline-templates', function () {
