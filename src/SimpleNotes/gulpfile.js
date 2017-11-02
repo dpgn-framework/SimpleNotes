@@ -208,8 +208,10 @@ gulp.task('bundle_app_build', function () {
 
 
 /*------------------------------------------*/
-/**bundle ok but dont know to use*/
-gulp.task('bundle', ['bundle-app', 'bundle-dependencies'], function () { });
+/**bundle ok to use, also inline template*/
+//https://stackoverflow.com/questions/39484539/angular-2-how-to-tell-systemjs-to-use-a-bundle
+//https://stackoverflow.com/questions/34878830/cannot-import-a-custom-component-angular2-and-typescript
+gulp.task('bundle-app', ['bundle-plain-app', 'bundle-dependencies-app'], function () { });
 
 gulp.task('copy-template', function () {
     return gulp.src('client/app/**/*.html')
@@ -217,10 +219,11 @@ gulp.task('copy-template', function () {
 });
 
 gulp.task('inline-templates', function () {
-    
+    var tsProject = gp_typescript.createProject('tsconfig.json');
+
     return gulp.src('client/app/**/*.ts')
-      //.pipe(gp_inlineNg2Template({ useRelativePaths: true, indent: 0, removeLineBreaks: true, base: '/client/app' }))
-      .pipe(gp_typescript({
+      //.pipe(gp_inlineNg2Template({ useRelativePaths: false, indent: 0, removeLineBreaks: true, base: 'client/' }))
+      /*.pipe(gp_typescript({
           "baseUrl": "Client",
           "target": "es5",
           "module": "commonjs",
@@ -231,18 +234,18 @@ gulp.task('inline-templates', function () {
           "removeComments": true,
           "lib": ["es2015", "es5", "dom"],
           "noImplicitAny": false
-      }))
-      .pipe(gulp.dest('dist/app'));
+      }))*/
+      .pipe(tsProject())
+      .pipe(gulp.dest('dist'));
 });
 
-gulp.task('bundle-app', ['inline-templates'], function () {
+gulp.task('bundle-plain-app', ['inline-templates'], function () {
     // optional constructor options
     // sets the baseURL and loads the configuration file
-    var builder = new SystemBuilder('', 'client/dist-systemjs.config.js');
+    var builder = new SystemBuilder('', 'client/systemjs.config.js');
 
     return builder
-      //.bundle('dist/app/**/* - [@angular/**/*.js] - [rxjs/**/*.js]', 'wwwroot/bundles/app.bundle.js', { minify: false })
-        .bundle('[dist/app/**/*]', 'wwwroot/bundles/app.bundle.js', { minify: false })
+      .bundle('[dist/**/*]', 'wwwroot/bundles/app.bundle.js', { minify: false, mangle: true })
       .then(function () {
           console.log('Build complete');
       })
@@ -252,14 +255,13 @@ gulp.task('bundle-app', ['inline-templates'], function () {
       });
 });
 
-gulp.task('bundle-dependencies', ['inline-templates'], function () {
+gulp.task('bundle-dependencies-app', ['inline-templates'], function () {
     // optional constructor options
     // sets the baseURL and loads the configuration file
-    var builder = new SystemBuilder('', 'client/dist-systemjs.config.js');
+    var builder = new SystemBuilder('', 'client/systemjs.config.js');
 
     return builder
-      //.bundle('dist/app/**/*.js - [dist/app/**/*.js]', 'wwwroot/bundles/dependencies.bundle.js', { minify: false })
-        .bundle('dist/app/**/* - [dist/app/**/*.js]', 'wwwroot/bundles/dependencies.bundle.js', { minify: false })
+      .bundle('dist/**/* - [dist/**/*.js]', 'wwwroot/bundles/dependencies.bundle.js', { minify: false, mangle: true })
       .then(function () {
           console.log('Build complete');
       })
