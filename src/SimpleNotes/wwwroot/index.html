@@ -15,6 +15,7 @@
     <script src="js/zone.js"></script>
     <script src="js/Reflect.js"></script>
     <script src="js/system.src.js"></script>
+
     <!--<script src="app/angular.bundle.js"></script>-->
     <!--<script src="app/dependencies.bundle.js"></script>
     <script src="app/app.bundle.js"></script>-->
@@ -37,69 +38,47 @@
     <!--<script src="app/angular.bundle.js"></script>-->
     <script>
         /*System.config({
-            bundles: {
-                //'app/angular.bundle.js': ['LoginModule', 'HomeModule', 'DialogModule', 'AppModule']
-                //'app/angular.bundle.js': ['LoginModule', 'AppModule'],
-                'app/angular.bundle.js': ['app/login/login.component', 'app/login/login.module',
-                    'app/main.js',
-                    'app/app.component', 'app/app.module', 'app/app.routing', 
-                    '@angular/core', '@angular/compiler', '@angular/platform-browser', '@angular/common', '@angular/platform-browser-dynamic',
-                    "rxjs/*",
-                    "rxjs/symbol/*",
-                    "rxjs/operator/*",
-                    "rxjs/observable/*",
-                    "rxjs/add/operator/*",
-                    "rxjs/add/observable/*",
-                    "rxjs/util/*"]
-                
+            //bundles: {
+            //    'app/app.bundle.js': ['dist/main.js'],
+            //    'app/dependencies.bundle.js': [
+            //        'npm:@angular/common//bundles/common.umd.js',
+            //        'npm:@angular/compiler//bundles/compiler.umd.js',
+            //        'npm:@angular/core//bundles/core.umd.js',
+            //        'npm:@angular/forms//bundles/forms.umd.js',
+            //        'npm:@angular/http//bundles/http.umd.js',
+            //        'npm:@angular/platform-browser//bundles/platform-browser.umd.js',
+            //        'npm:@angular/platform-browser-dynamic//bundles/platform-browser-dynamic.umd.js',
+            //        'npm:@angular/router//bundles/router.umd.js'
+            //    ]
+            //},
+            map: {
+                'app': 'dist',
 
-                'app/app.bundle.js': ['dist/app/login/login.component', 'dist/app/login/login.module',
-                    'dist/app/main',
-                    'dist/app/app.component', 'dist/app/app.module', 'dist/app/app.routing'],
-                'app/dependencies.bundle.js': [
-                    '@angular/core', '@angular/compiler', '@angular/platform-browser', '@angular/common',
-                    "rxjs/*",
-                    "rxjs/symbol/*",
-                    "rxjs/operator/*",
-                    "rxjs/observable/*",
-                    "rxjs/add/operator/*",
-                    "rxjs/add/observable/*",
-                    "rxjs/util/*"]
-            },
-            
-            paths : {
-                'npm:': './node_modules/'
-            },
-            map : {
-                'app': 'app', // our application files
+                'moment': 'npm:moment',
+                'ng2-bootstrap': 'npm:ng2-bootstrap',
+                'ng2-bootstrap-modal': 'npm:ng2-bootstrap-modal',
+
+                'rxjs': 'npm:rxjs',
+                '@angular': 'npm:@angular',
+                '@angular/common': 'npm:@angular/common//bundles/common.umd.js',
+                '@angular/compiler': 'npm:@angular/compiler//bundles/compiler.umd.js',
+                '@angular/core': 'npm:@angular/core//bundles/core.umd.js',
+                '@angular/forms': 'npm:@angular/forms//bundles/forms.umd.js',
+                '@angular/http': 'npm:@angular/http//bundles/http.umd.js',
+                '@angular/platform-browser': 'npm:@angular/platform-browser//bundles/platform-browser.umd.js',
+                '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic//bundles/platform-browser-dynamic.umd.js',
+                '@angular/router': 'npm:@angular/router//bundles/router.umd.js'
             },
             // packages tells the System loader which filename and/or extensions to look for by default (when none are specified)
-            packages : {
+            packages: {
                 'app': { main: 'main.js', defaultExtension: 'js' },
                 'rxjs': { main: 'Rx.js', defaultExtension: 'js' },
                 'moment': { main: 'moment.js', defaultExtension: 'js' },
                 'ng2-bootstrap': { main: 'bundles/ngx-bootstrap.umd.min.js', defaultExtension: 'js' },
                 'ng2-bootstrap-modal': { main: 'index.js', defaultExtension: 'js' }
             },
-        
-        });*/
-        //System.import('app/main').catch(function (err) { console.error(err); });
-
-        /*
-      System.import('systemjs.config.js').then(function() {
-          System.import('app/main').catch(function (err) { console.error(err); });
-      });*/
-      
-        /*System.import('app/angular.bundle.js').then(function () {
-           System.import('app/main').catch(function (err) { console.error(err); });
-        });*/
-
-        /*
-        System.import('app').then(
-    function(module) {
-      return module.start(appConfig, messagePropsData);
-    }).catch(function(err){ console.error(err); });
-        */
+        });
+        System.import('app').catch(function (err) { console.error(err); });*/
     </script>
 </body>
 </html>

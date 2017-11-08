@@ -35,6 +35,12 @@ export { DemoCustomDialog } from 'app/demo/demo-custom.dialog';
 //Directives
 import { ClickOutsideDirective } from 'app/components/ng2-click-outside.directive';
 export { ClickOutsideDirective } from 'app/components/ng2-click-outside.directive';
+import { TranslatorDirective } from 'app/directives/translator.directive';
+export { TranslatorDirective } from 'app/directives/translator.directive';
+
+//Pipes
+import { TranslatorPipe } from 'app/pipes/translator.pipe';
+export { TranslatorPipe } from 'app/pipes/translator.pipe';
 
 //Dialogs
 
@@ -53,6 +59,9 @@ export const sn_control_components = [SnDatepickerComponent];
 export const sn_entry_components = [DemoCustomDialog];
 
 //Directives
-export const sn_directives = [ClickOutsideDirective];
+export const sn_directives = [ClickOutsideDirective, TranslatorDirective];
+
+//Pipes
+export const sn_pipes = [TranslatorPipe];
 
 // Dialogs

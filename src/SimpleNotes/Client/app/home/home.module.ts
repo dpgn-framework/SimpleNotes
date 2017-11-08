@@ -14,7 +14,7 @@ import { Ng2BootstrapModule } from 'ng2-bootstrap';
 import {
     ServiceLocator,
     sn_components, sn_control_components,
-    sn_entry_components, sn_services, sn_directives
+    sn_entry_components, sn_services, sn_directives, sn_pipes
 } from 'app/home/home.declare';
 
 // routing config
@@ -34,10 +34,10 @@ import { homeRouting } from 'app/home/home.routing';
     ],
     providers: [sn_services],
     declarations: [
-        sn_directives, sn_components, sn_control_components, sn_entry_components
+        sn_directives, sn_components, sn_control_components, sn_entry_components, sn_pipes
     ],
     exports: [
-        sn_directives, sn_components, sn_control_components, sn_entry_components
+        sn_directives, sn_components, sn_control_components, sn_entry_components, sn_pipes
     ],
     entryComponents: [
         sn_entry_components
