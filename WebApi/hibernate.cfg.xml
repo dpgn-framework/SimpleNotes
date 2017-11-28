@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-configuration xmlns="urn:nhibernate-configuration-2.2">
+  <session-factory>
+    <property name="connection.provider">
+      NHibernate.Connection.DriverConnectionProvider
+    </property>
+    <!-- Change these to Oracle, Sql2000 etc-->
+    <property name="connection.driver_class">
+      NHibernate.Driver.SqlClientDriver
+    </property>
+    <property name="dialect">
+      NHibernate.Dialect.MsSql2012Dialect,
+      NHibernate
+    </property>
+    <property name="connection.connection_string">
+      data source=super-man\SQLEXPRESS2012;initial catalog=SimpleNotes;user id=sa;password=sa
+    </property>
+    <property name="adonet.batch_size">
+      500
+    </property>
+    <!-- "managed_web", "call", "thread_static", and "web" -->
+    <property name="current_session_context_class">
+      web
+    </property>
+    <property name="show_sql">true</property>
+    <mapping assembly="WebApi"/>
+  </session-factory>
+</hibernate-configuration>
+
+<!--
+http://www.martinwilley.com/net/code/nhibernate/appconfig.html
+http://nhforge.org/wikis/reference2-0en/context-sessions.aspx
+-->
